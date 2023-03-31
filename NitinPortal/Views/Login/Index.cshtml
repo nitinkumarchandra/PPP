@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <title>Portal</title>
+</head>
+<body>
+
+    <style>
+        .form-control:focus {
+            border-color: #FF0000;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+        }
+    </style>
+
+    <div class="wrapper mt-5">
+        <div class="d-flex justify-content-center ">
+            <div class="col-10 col-md-6 border   rounded ">
+                <h3 class="text-center mt-3">Login</h3>
+                <div class="p-2 p-lg-5">
+                    <form method="post" action="">
+                        <div>
+                            <input type="text" placeholder="Enter Email" class="form-control" />
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Enter Email" class="form-control mt-2" />
+                        </div>
+                        <div>
+                            <input type="checkbox" class="mt-3" />
+                            <span>I agree all statements in Terms in Service</span>
+                        </div>
+                        <div>
+                            <input type="submit" value="Submit" class="btn btn-primary w-100 border-0 mt-3" />
+                        </div>
+                        <div class="text-center mt-5">
+                            <span>Create New Account? <a href="/Registration/Index">Registration</a> </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

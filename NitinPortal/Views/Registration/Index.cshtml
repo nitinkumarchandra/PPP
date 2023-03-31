@@ -1,0 +1,106 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <title>Portal</title>
+</head>
+<body>
+
+    <style>
+        .form-control {
+            transition: 0.5s;
+        }
+
+            .form-control:focus {
+                border-color: dodgerblue;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px dodgerblue;
+            }
+    </style>
+
+    <div class="wrapper mt-5">
+        <div class="d-flex justify-content-center ">
+            <div class="col-10 col-md-6 border   rounded ">
+                <h3 class="text-center mt-3">Registration</h3>
+                <div class="p-2 p-lg-5">
+                    <form method="post" action="">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <input type="text" placeholder="Enter First Name" name="FirstName" id="FirstName" class="form-control" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" placeholder="Enter Last Name" name="LastName" id="LastName" class="form-control mt-2 mt-md-0 mt-lg-0" />
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12 col-md-6">
+                                <input type="text" placeholder="Enter Email" name="Email" id="Email" class="form-control" />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" placeholder="Enter Company" name="CompanyName" id="CompanyName" class="form-control mt-2 mt-md-0 mt-lg-0" />
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12 col-md-4">
+                                <select class="form-control" name="Country" id="Country">
+                                    <option>-- Select Country --</option>
+                                    <option>India</option>
+                                    <option>Pakistan</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <select class=" form-control mt-2 mt-md-0 mt-lg-0" name="State" id="State">
+                                    <option>-- Select State --</option>
+                                    <option>Uttar Pradesh</option>
+                                    <option>Delhi</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <select class="form-control mt-2 mt-md-0 mt-lg-0" name="City" id="City">
+                                    <option>-- City --</option>
+                                    <option>Moradabad</option>
+                                    <option>Jaipur</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="mt-3" />
+                            <span>I agree all statements in Terms in Service</span>
+                        </div>
+                        <div>
+                            <input type="submit" value="Submit" class="btn btn-primary w-100 border-0 mt-3" />
+                        </div>
+                        <div class="text-center mt-5">
+                            <span>Have already an account? <a href="/Login/Index">Login</a> </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center my-5">
+        @{
+            if (TempData["FirstName"] != null)
+            {
+                <div class=" col-md-6 card p-3">
+                    <p><strong>Name: </strong> @TempData["FirstName"] @TempData["LastName"]</p>
+                    <p><strong>Email: </strong>@TempData["Email"]</p>
+                    <p><strong>Company Name: </strong>@TempData["CompanyName"]</p>
+                    <p><strong>Country: </strong>@TempData["Country"]</p>
+                    <p><strong>State: </strong>@TempData["State"]</p>
+                </div>
+            }
+        }
+    </div>
+</body>
+</html>
