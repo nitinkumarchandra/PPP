@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NitinPortal.DataConnection;
+using NitinPortal.Models;
 using System.Security;
 using System.Security.Cryptography.X509Certificates;
 
@@ -6,6 +8,8 @@ namespace NitinPortal.Controllers
 {
     public class RegistrationController : Controller
     {
+        bool isImageValid = true;
+        NitinPortalContext Db = new NitinPortalContext();
         [HttpGet]
         public IActionResult Index()
         {
@@ -13,20 +17,58 @@ namespace NitinPortal.Controllers
         }
 
         [HttpPost]
-    public IActionResult Index(string FirstName, string LastName, string Email, string CompanyName, string Country, string State, string City)
+        public IActionResult Index(Employee e, string LastName)
         {
+            Employee obj = new Employee();
 
+            obj.Name = e.Name + " " + LastName;
+            obj.Email = e.Email;
+            obj.CompanyName = e.CompanyName;
 
-            TempData["FirstName"] = FirstName;
-            TempData["LastName"] = LastName;
-            TempData["Email"] = Email;
-            TempData["CompanyName"] = CompanyName;
-            TempData["Country"] = Country;
-            TempData["State"] = State;
-            TempData["City"] = City;
 
 
             return View();
         }
+
+        // File Save in Database and Filepath
+
+        [HttpPost]
+        public JsonResult BulkSaveUpload()
+        {
+            int imageId = 0;
+            var file = Request.Form.Files[0];
+            var filename = file.FileName;
+            var extension = Path.GetExtension(filename);
+            var fileSize = file.Length;
+            string[] validImageExtension = { ".png", ".jpg", "jpeg" };
+
+            if (!validImageExtension.Contains(extension))
+                isImageValid = false;
+
+            string filePath = "Image/" + DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss-ff") + "_" + filename;
+
+            bool isImageUpload = ObjectStorageHelper.PutObject(filePath, file);
+
+            if (isImageUpload)
+            {
+                Images imgObj = new Images()
+                {
+                    Name = filename,
+                    Extension = extension,
+                    FileSize = fileSize.ToString(),
+                    FilePath = filePath,
+                    FileType = "Image"
+                };
+                Db.Images.Add(imgObj);
+                Db.SaveChanges();
+
+                imageId = imgObj.ImageId;
+            }
+            return Json(imageId);
+        }
+
     }
+
+
+
 }

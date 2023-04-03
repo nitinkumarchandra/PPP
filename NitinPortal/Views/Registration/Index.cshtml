@@ -12,6 +12,9 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <title>Portal</title>
 </head>
 <body>
@@ -35,7 +38,7 @@
                     <form method="post" action="">
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <input type="text" placeholder="Enter First Name" name="FirstName" id="FirstName" class="form-control" />
+                                <input type="text" placeholder="Enter First Name" name="Name" id="Name" class="form-control" />
                             </div>
                             <div class="col-12 col-md-6">
                                 <input type="text" placeholder="Enter Last Name" name="LastName" id="LastName" class="form-control mt-2 mt-md-0 mt-lg-0" />
@@ -71,6 +74,11 @@
                                     <option>Jaipur</option>
                                 </select>
                             </div>
+
+                            <div class="col-12 col-md-8">
+                                <label class="mt-2">Select Image:</label>
+                                <input type="file" name="ImageFile" id="ImageFile" class="mt-1 form-control" />
+                            </div>
                         </div>
                         <div>
                             <input type="checkbox" class="mt-3" />
@@ -102,5 +110,48 @@
             }
         }
     </div>
+
+    <script type="text/javascript">
+        $('#ImageFile').change(function () {
+            var file = document.getElementById('ImageFile').files[0];
+
+            var filename = file.name;
+            debugger;
+            var extension = filename.split(".").pop();
+
+            var validImageExtension = ["png", "jpg", "jpeg"];
+            var isImageValid = true;
+
+            if ($.inArray(extension, validImageExtension) == -1) {
+                isImageValid = false;
+            }
+
+            if (isImageValid) {
+                var formData = new FormData();
+                formData.append("Image", file);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Registration/BulkSaveUpload',
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                        alert('Form Submitted!');
+                    },
+                    error: function () {
+                        alert("error in ajax form submission");
+                    }
+                });
+
+            }
+            console.log(extension);
+        });
+
+    </script>
 </body>
 </html>
+
+

@@ -11,6 +11,7 @@ namespace NitinPortal.Controllers
 {
     public class DemoController : Controller
     {
+        bool isImageValid = true;
         NitinPortalContext Db = new NitinPortalContext();
         public ActionResult Index()
         {
@@ -23,6 +24,7 @@ namespace NitinPortal.Controllers
         [HttpPost]
         public JsonResult BulkSaveUpload()
         {
+
             int imageId = 0;
             var file = Request.Form.Files[0];
 
@@ -32,7 +34,7 @@ namespace NitinPortal.Controllers
 
             string[] validImageExtension = { ".png", ".jpg", "jpeg" };
 
-            bool isImageValid = true;
+
 
             if (!validImageExtension.Contains(extension))
                 isImageValid = false;
@@ -44,6 +46,7 @@ namespace NitinPortal.Controllers
             if (isImageUpload)
             {
                 Images imgObj = new Images()
+
                 {
                     Name = filename,
                     Extension = extension,
