@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using NitinPortal.DataConnection;
 using NitinPortal.Models;
 using System.Security;
 using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace NitinPortal.Controllers
 {
@@ -10,21 +13,23 @@ namespace NitinPortal.Controllers
     {
         bool isImageValid = true;
         NitinPortalContext Db = new NitinPortalContext();
+
         [HttpGet]
         public IActionResult Index()
         {
+            List<Country> countryData = Db.Countries.ToList();
+            ViewBag.countryList = new SelectList(countryData, "CountryName", "CountryName");
             return View();
         }
-
         [HttpPost]
-        public IActionResult Index(Employee e, string LastName)
+        public IActionResult Index(Employee e, string LastName, Country country)
         {
             Employee obj = new Employee();
 
             obj.Name = e.Name + " " + LastName;
             obj.Email = e.Email;
             obj.CompanyName = e.CompanyName;
-
+            obj.Country = country.CountryName;
 
 
             return View();
@@ -66,9 +71,5 @@ namespace NitinPortal.Controllers
             }
             return Json(imageId);
         }
-
     }
-
-
-
 }

@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [NitinPortal]    Script Date: 03-04-2023 11:16:21 ******/
+/****** Object:  Database [NitinPortal]    Script Date: 04-04-2023 14:25:57 ******/
 CREATE DATABASE [NitinPortal]
  CONTAINMENT = NONE
  ON  PRIMARY 
