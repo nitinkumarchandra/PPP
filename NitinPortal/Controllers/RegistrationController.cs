@@ -17,7 +17,9 @@ namespace NitinPortal.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<Country> countryData = Db.Countries.ToList();
+
+            
+            List<Country> countryData = Db.Countries.OrderBy(model => model.CountryName).ToList();
             ViewBag.countryList = new SelectList(countryData, "CountryName", "CountryName");
             return View();
         }
@@ -33,6 +35,13 @@ namespace NitinPortal.Controllers
 
 
             return View();
+        }
+
+        public JsonResult GetState(int id)
+        {
+            var state = Db.States.Where(model => model.CountryId == id).ToList();
+
+            return Json(new SelectList(state,"State Id","State Name"));
         }
 
         // File Save in Database and Filepath

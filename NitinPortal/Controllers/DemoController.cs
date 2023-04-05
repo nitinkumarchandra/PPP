@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using NitinPortal.DataConnection;
 using NitinPortal.Models;
-using System.Drawing;
 
 namespace NitinPortal.Controllers
 {
