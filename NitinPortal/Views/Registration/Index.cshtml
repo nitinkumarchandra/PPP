@@ -56,11 +56,11 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-12 col-md-4">
-                                @Html.DropDownListFor(model => model.CountryName, ViewBag.countryList as SelectList, "-- Select Country --", new {@class = "form-control"})
+                                @Html.DropDownListFor(model => model.CountryId, ViewBag.countryList as SelectList, "-- Select Country --", new {@class = "form-control"})
                             </div>
                             <div class="col-12 col-md-4">
-                                <select class=" form-control mt-2 mt-md-0 mt-lg-0" name="State" id="State">
-                                    <option value="1">-- Select State --</option>
+                                <select class=" form-control mt-2 mt-md-0 mt-lg-0" name="StateId" id="StateId">
+                                    <option>-- Select State --</option>
                                 </select>
                             </div>
                             <div class="col-12 col-md-4">
@@ -153,21 +153,16 @@
     <script>
         $(document).ready(function () {
             alert("Loaded..");
-            $('#CountryName').change(function () {
-                alert("Loaded And Change..");
-                $('#State').empty();
-                $('#City').empty();
+            $('#CountryId').change(function () {
 
-                $.ajax({
-                    type: 'GET',
-                    url: '/Registration/GetState',
-                    dataType: 'JSON',
-                    data: { id: $("#CountryName").val() },
-
-                    success: function (States) {
-                        $('#State').apend('<optiion value = "' + -1 + '">' + "Select State" + '</option>')
-                    }
+                debugger;
+                $.get("/Registration/GetState", { CountryId: $("#CountryId").val() }, function (data) {
+                    $('#StateId').empty();
+                    $.each(data, function(index, row){
+                        $("#StateId").append("<option value = ' " + row.StateId + " ' > " + row.StateName + "< /option>")
+                    });
                 });
+                alert("Loaded And Change..");
             });
         });
     </script>
