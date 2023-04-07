@@ -294,3 +294,10 @@ C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\runtimes\linux-x
 C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\runtimes\osx-x64\native\libgrpc_csharp_ext.x64.dylib
 C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\runtimes\win-x64\native\grpc_csharp_ext.x64.dll
 C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\runtimes\win-x86\native\grpc_csharp_ext.x86.dll
+C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\System.Web.Razor.dll
+C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\System.Web.WebPages.dll
+C:\Users\PBTPL\Desktop\NitinPortal\NitinPortal\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
