@@ -44,7 +44,7 @@ namespace NitinPortal.Controllers
 
             if (isImageUpload)
             {
-                Images imgObj = new Images()
+                Image imgObj = new Image()
 
                 {
                     Name = filename,

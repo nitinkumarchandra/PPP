@@ -1,0 +1,50 @@
+﻿@model List<NitinPortal.DataConnection.Employee1>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    @*Table Section*@
+    <section>
+        <div class="mx-5 border p-3">
+            <div>
+                <h3 class="text-center">Employee Tables</h3>
+            </div>
+            <div>
+                <a href="/Employee/Create" class="btn btn-primary mt-5">Add New Employee</a>
+            </div>
+            <table class="table table-bordered table-responsive mt-2">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Images</th>
+                </tr>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Email</td>
+                            <td><img src="~/images/@item.NewImagePath" width="50" height="50" /></td>
+                        </tr>
+                    }
+                }
+                
+            </table>
+        </div>
+    </section>
+</body>
+</html>

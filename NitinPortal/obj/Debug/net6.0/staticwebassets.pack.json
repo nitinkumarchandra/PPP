@@ -13,6 +13,30 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\PBTPL\\Desktop\\NitinPortal\\NitinPortal\\wwwroot\\images\\Artboard 1@5x.png",
+      "PackagePath": "staticwebassets\\images\\Artboard 1@5x.png"
+    },
+    {
+      "Id": "C:\\Users\\PBTPL\\Desktop\\NitinPortal\\NitinPortal\\wwwroot\\images\\Edit Log.jpg",
+      "PackagePath": "staticwebassets\\images\\Edit Log.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PBTPL\\Desktop\\NitinPortal\\NitinPortal\\wwwroot\\images\\PunjabBulls Best Quality.png",
+      "PackagePath": "staticwebassets\\images\\PunjabBulls Best Quality.png"
+    },
+    {
+      "Id": "C:\\Users\\PBTPL\\Desktop\\NitinPortal\\NitinPortal\\wwwroot\\images\\be1f82ff-62c1-4190-9beb-0f50b476add4.jpg",
+      "PackagePath": "staticwebassets\\images\\be1f82ff-62c1-4190-9beb-0f50b476add4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PBTPL\\Desktop\\NitinPortal\\NitinPortal\\wwwroot\\images\\ca273997-feab-42d4-a14b-12fa14cc3d75.png",
+      "PackagePath": "staticwebassets\\images\\ca273997-feab-42d4-a14b-12fa14cc3d75.png"
+    },
+    {
+      "Id": "C:\\Users\\PBTPL\\Desktop\\NitinPortal\\NitinPortal\\wwwroot\\images\\e492158d-1472-46d9-a825-7d64fe9ae193.jpg",
+      "PackagePath": "staticwebassets\\images\\e492158d-1472-46d9-a825-7d64fe9ae193.jpg"
+    },
+    {
       "Id": "C:\\Users\\PBTPL\\Desktop\\NitinPortal\\NitinPortal\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

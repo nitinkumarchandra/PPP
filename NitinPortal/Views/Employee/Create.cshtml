@@ -1,0 +1,109 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <style>
+        .form-control {
+            transition: 0.5s;
+        }
+
+            .form-control:focus {
+                border-color: dodgerblue;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px dodgerblue;
+            }
+    </style>
+
+    @*Create Section*@
+    <section class="mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="col-10 col-md-6 border rounded">
+                <h3 class="text-center mt-3">Add New Employee</h3>
+                <div class="p-2 p-lg-5">
+                    <form method="post" action="/Employee/Create" enctype="multipart/form-data">
+                        <div class="row">
+                            <label class="col-md-2 m-0">Name:</label>
+                            <div class="col-md-10">
+                                <input type="text" id="Name" name="Name" placeholder="Enter Name" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <label class="col-md-2 m-0">Email:</label>
+                            <div class="col-md-10">
+                                <input type="text" id="Email" name="Email" placeholder="Enter Email" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <label class="col-md-2 m-0">Images:</label>
+                            <div class="col-md-10">
+                                <input type="file" id="file" name="file" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end mt-2">
+                            <div class="col-md-6">
+                                <input type="submit" value="Submit" class="btn btn-primary w-100" />
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script type="text/javascript">
+        $('#ImageFile').change(function () {
+            var file = document.getElementById('ImageFile').files[0];
+
+            var filename = file.name;
+            debugger;
+            var extension = filename.split(".").pop();
+
+            var validImageExtension = ["png", "jpg", "jpeg"];
+            var isImageValid = true;
+
+            if ($.inArray(extension, validImageExtension) == -1) {
+                isImageValid = false;
+            }
+
+            if (isImageValid) {
+                var formData = new FormData();
+                formData.append("Image", file);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Employee/BulkSaveUpload',
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                        alert('Form Submitted!');
+                    },
+                    error: function () {
+                        alert("error in ajax form submission");
+                    }
+                });
+
+            }
+        });
+
+    </script>
+
+</body>
+</html>
